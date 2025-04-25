@@ -1,20 +1,10 @@
-# Python
 venv/
 __pycache__/
-*.py[cod]
-*.so
+*.pyc
+*.pyo
+*.pyd
 .Python
-env/
-*.egg-info/
-
-# SQLite
-*.sqlite
+*.sqlite3
 *.db
-
-# Entorno
 .env
-
-# Otros
 .DS_Store
-.idea/
-.vscode/
