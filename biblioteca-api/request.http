@@ -1,0 +1,38 @@
+### Variables globales
+@host = http://localhost:8000
+
+### Obtener todos los libros
+GET {{host}}/libros/
+
+### Obtener un libro específico por ID
+GET {{host}}/libros/1
+
+### Crear un nuevo libro
+POST {{host}}/libros/
+Content-Type: application/json
+
+{
+  "titulo": "Cien años de soledad",
+  "autor": "Gabriel García Márquez",
+  "isbn": "9780307474728",
+  "categoria": "Novela",
+  "estado": "disponible"
+}
+
+### Actualizar un libro
+PUT {{host}}/libros/1
+Content-Type: application/json
+
+{
+  "titulo": "Cien años de soledad (Edición especial)",
+  "estado": "en reparación"
+}
+
+### Eliminar un libro
+DELETE {{host}}/libros/1
+
+### Buscar libros
+GET {{host}}/libros/buscar/?q=Márquez
+
+### Buscar libros por categoría
+GET {{host}}/libros/buscar/?categoria=Novela
