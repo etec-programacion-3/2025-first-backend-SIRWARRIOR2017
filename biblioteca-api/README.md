@@ -32,6 +32,55 @@ Implementación del sistema de préstamos, incluyendo:
 - Historial de préstamos
 - Notificaciones
 
+## Elección de Tecnología
+
+Para el desarrollo de este proyecto se eligió la siguiente stack tecnológica:
+
+- **Python + FastAPI + Tortoise ORM + SQLite**
+
+### Justificación de la elección
+
+- **FastAPI:** Framework moderno, rápido y fácil de aprender para construir APIs.
+- **Tortoise ORM:** ORM asíncrono que se integra muy bien con FastAPI y permite trabajar con sintaxis moderna.
+- **SQLite:** Base de datos ligera, ideal para desarrollo y pruebas, no requiere configuración de servidor.
+
+### Dependencias utilizadas
+
+- `fastapi`
+- `uvicorn`
+- `tortoise-orm`
+- `pydantic`
+- `python-jose`
+- `passlib`
+- `python-multipart`
+
+## Instalación del Entorno y Dependencias
+
+Sigue estos pasos para preparar el entorno de desarrollo:
+
+1. **Crear un entorno virtual (venv):**
+
+   ```bash
+   python3 -m venv venv
+   ```
+
+2. **Activar el entorno virtual:**
+
+   - En Linux/Mac:
+     ```bash
+     source venv/bin/activate
+     ```
+   - En Windows:
+     ```cmd
+     venv\Scripts\activate
+     ```
+
+3. **Instalar las dependencias:**
+
+   ```bash
+   pip install fastapi uvicorn tortoise-orm pydantic python-jose passlib python-multipart
+   ```
+
 ## Objetivos de Aprendizaje
 - Diseñar e implementar una API REST
 - Trabajar con bases de datos SQL a través de ORM
@@ -49,23 +98,21 @@ Nota: Se debe utilizar un ORM (Object-Relational Mapping) para interactuar con l
 
 ## Pruebas de la API
 - Se recomienda utilizar REST Client para probar los endpoints
-- Crear un archivo `requests.http` en el proyecto con todas las peticiones necesarias
-- Incluir ejemplos de todas las operaciones CRUD
-- Documentar cada petición con comentarios explicativos
+- El archivo `request.http` en el proyecto contiene todas las peticiones necesarias
+- Incluye ejemplos de todas las operaciones CRUD
+- Cada petición está documentada con comentarios explicativos
 
 ## Fase 1: Gestión de Libros
 
-### Modelo de Datos
+### Modelo de Datos (actualmente en memoria)
 ```python
-# Ejemplo con Tortoise ORM
-class Libro(Model):
-    id = fields.IntField(pk=True)
-    titulo = fields.CharField(max_length=255)
-    autor = fields.CharField(max_length=255)
-    isbn = fields.CharField(max_length=13, unique=True)
-    categoria = fields.CharField(max_length=100)
-    estado = fields.CharField(max_length=50)  # disponible, prestado, etc.
-    fecha_creacion = fields.DatetimeField(auto_now_add=True)
+class Libro(BaseModel):
+    id: int
+    titulo: str
+    autor: str
+    isbn: str
+    categoria: str
+    estado: str
 ```
 
 ### Endpoints
