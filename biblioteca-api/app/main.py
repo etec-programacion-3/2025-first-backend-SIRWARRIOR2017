@@ -1,12 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.endpoints import libros
+from app.api.endpoints import libros, productos
 from app.db import init_db, close_db
 
 app = FastAPI(
     title="Biblioteca API",
-    description="API REST para el sistema de gestión de biblioteca",
+    description="API REST para el sistema de gestión de biblioteca y productos",
     version="0.1.0",
 )
 
@@ -21,6 +21,7 @@ app.add_middleware(
 
 # Incluir routers
 app.include_router(libros.router, prefix="/libros", tags=["libros"])
+app.include_router(productos.router, prefix="/api/products", tags=["productos"])
 
 @app.on_event("startup")
 async def startup_event():
@@ -36,4 +37,4 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8001, reload=True)

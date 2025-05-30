@@ -12,10 +12,10 @@ POST {{host}}/libros/
 Content-Type: application/json
 
 {
-  "titulo": "Cien años de soledad",
-  "autor": "Gabriel García Márquez",
+  "titulo": "No me puedes lastimar",
+  "autor": "David Goggins",
   "isbn": "9780307474728",
-  "categoria": "Novela",
+  "categoria": "Autoayuda",
   "estado": "disponible"
 }
 
@@ -24,7 +24,7 @@ PUT {{host}}/libros/1
 Content-Type: application/json
 
 {
-  "titulo": "Cien años de soledad (Edición especial)",
+  "titulo": "No mepuedes lastimar(edicion especial)",
   "estado": "en reparación"
 }
 
