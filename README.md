@@ -81,6 +81,61 @@ Sigue estos pasos para preparar el entorno de desarrollo:
    pip install fastapi uvicorn tortoise-orm pydantic python-jose passlib python-multipart
    ```
 
+## Guía de Instalación y Ejecución
+
+### Requisitos Previos
+- Python 3.8 o superior
+- Node.js 14 o superior (opcional, para servir el frontend)
+- Git
+
+
+### Configuración del Entorno
+
+1. **Clonar el repositorio:**
+
+   ```bash
+   git clone <url-del-repositorio>
+   cd nombre-del-repositorio
+   ```
+
+2. **Crear y activar el entorno virtual:**
+
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Instalar las dependencias:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Configurar la base de datos:**
+
+   - Renombrar el archivo `.env.example` a `.env`
+   - Configurar las variables de entorno según sea necesario
+
+5. **Ejecutar las migraciones:**
+
+   ```bash
+   alembic upgrade head
+   ```
+
+6. **Iniciar la aplicación:**
+
+   ```bash
+   uvicorn app.main:app --reload
+   ```
+
+### Pruebas
+
+- Para ejecutar las pruebas, asegúrate de tener el entorno virtual activado y ejecuta:
+
+  ```bash
+  pytest
+  ```
+
 ## Objetivos de Aprendizaje
 - Diseñar e implementar una API REST
 - Trabajar con bases de datos SQL a través de ORM
