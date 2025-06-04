@@ -12,6 +12,7 @@ class Libro(BaseModel):
     isbn: str
     categoria: str
     estado: str
+    prestado_a: Optional[str] = None
 
 class LibroCreate(BaseModel):
     titulo: str
@@ -19,6 +20,7 @@ class LibroCreate(BaseModel):
     isbn: str
     categoria: str
     estado: str
+    prestado_a: Optional[str] = None
 
 class LibroUpdate(BaseModel):
     titulo: Optional[str] = None
@@ -26,10 +28,11 @@ class LibroUpdate(BaseModel):
     isbn: Optional[str] = None
     categoria: Optional[str] = None
     estado: Optional[str] = None
+    prestado_a: Optional[str] = None
 
 # Base de datos simulada
 libros_db: List[Libro] = [
-    Libro(id=1, titulo="Libro de ejemplo", autor="Autor Ejemplo", isbn="1234567890", categoria="Novela", estado="disponible")
+    Libro(id=1, titulo="Libro de ejemplo", autor="Autor Ejemplo", isbn="1234567890", categoria="Novela", estado="disponible", prestado_a=None)
 ]
 
 # Obtener todos los libros

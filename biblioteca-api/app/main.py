@@ -20,7 +20,7 @@ app.add_middleware(
 )
 
 # Incluir routers
-app.include_router(libros.router, prefix="/libros", tags=["libros"])
+app.include_router(libros.router, prefix="/api/libros", tags=["libros"])
 app.include_router(productos.router, prefix="/api/products", tags=["productos"])
 
 @app.on_event("startup")
@@ -37,4 +37,4 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8001, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
