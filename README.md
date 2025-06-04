@@ -81,52 +81,51 @@ Sigue estos pasos para preparar el entorno de desarrollo:
    pip install fastapi uvicorn tortoise-orm pydantic python-jose passlib python-multipart
    ```
 
-## Guía de Instalación y Ejecución
+## Cómo ejecutar el backend
 
-### Requisitos Previos
-- Python 3.8 o superior
-- Node.js 14 o superior (opcional, para servir el frontend)
-- Git
+Sigue estos pasos para levantar el backend de la biblioteca:
 
-
-### Configuración del Entorno
-
-1. **Clonar el repositorio:**
-
+1. **Clona el repositorio y entra a la carpeta del proyecto:**
    ```bash
    git clone <url-del-repositorio>
-   cd nombre-del-repositorio
+   cd 2025-first-backend-SIRWARRIOR2017
    ```
 
-2. **Crear y activar el entorno virtual:**
-
+2. **Crea y activa un entorno virtual:**
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    ```
 
-3. **Instalar las dependencias:**
-
+3. **Instala las dependencias:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Configurar la base de datos:**
+4. **(Opcional) Configura la base de datos:**
+   - Si usas SQLite, ya está lista para pruebas.
+   - Si usas variables de entorno, copia `.env.example` a `.env` y edítalo según tu configuración.
 
-   - Renombrar el archivo `.env.example` a `.env`
-   - Configurar las variables de entorno según sea necesario
-
-5. **Ejecutar las migraciones:**
-
+5. **Ejecuta el backend:**
    ```bash
-   alembic upgrade head
+   uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
    ```
+   Esto levantará el servidor en http://localhost:8000
 
-6. **Iniciar la aplicación:**
+6. **Accede a la documentación interactiva:**
+   - Swagger UI: http://localhost:8000/docs
+   - Redoc: http://localhost:8000/redoc
 
-   ```bash
-   uvicorn app.main:app --reload
-   ```
+7. **Ejecuta el frontend:**
+   - Clona el repositorio del frontend:
+     ```bash
+     git clone <url-del-repo-frontend>  # Reemplaza por la URL real
+     cd 2025-first-basic-frontend-SIRWARRIOR2017
+     ```
+   - Abre la carpeta en Visual Studio Code.
+   - Instala la extensión **Live Server** desde el marketplace de VS Code.
+   - Haz clic derecho sobre el archivo `index.html` y selecciona **"Open with Live Server"** o abajo a la derecha toca "Go Live".
+   - El frontend se abrirá en tu navegador y podrás interactuar con la API del backend.
 
 ### Pruebas
 
